@@ -1,0 +1,10 @@
+[NuMega Checkers Project]
+Version=1
+ImageCount=1
+[Image 0]
+Path=D:\Devel\VB\Sieben\Sieben.exe
+Executable=
+WorkingPath=D:\Devel\VB\Sieben\
+Arguments=
+SearchPaths=.;..;
+ProjectType=0

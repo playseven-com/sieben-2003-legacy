@@ -1,0 +1,661 @@
+VERSION 5.00
+Begin VB.Form frmStatistik 
+   BackColor       =   &H00004000&
+   BorderStyle     =   4  'Festes Werkzeugfenster
+   Caption         =   "Statistik"
+   ClientHeight    =   6540
+   ClientLeft      =   9705
+   ClientTop       =   1020
+   ClientWidth     =   3120
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   6540
+   ScaleWidth      =   3120
+   ShowInTaskbar   =   0   'False
+   Visible         =   0   'False
+   Begin VB.TextBox txtGelegteKarten 
+      Height          =   375
+      Left            =   3600
+      TabIndex        =   36
+      Top             =   480
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.Timer Timer1 
+      Interval        =   50
+      Left            =   3240
+      Top             =   4920
+   End
+   Begin VB.ListBox lstVerlauf 
+      Height          =   1620
+      ItemData        =   "frmStatistik.frx":0000
+      Left            =   120
+      List            =   "frmStatistik.frx":0002
+      TabIndex        =   35
+      Top             =   4800
+      Width           =   2895
+   End
+   Begin VB.TextBox txtRundenVerl 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   31
+      Top             =   4200
+      Width           =   615
+   End
+   Begin VB.TextBox txtRundenGew 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   29
+      Top             =   3840
+      Width           =   615
+   End
+   Begin VB.TextBox txtRundenGes 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   27
+      Top             =   3480
+      Width           =   615
+   End
+   Begin VB.TextBox txtSpieleVerl 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   24
+      Top             =   3000
+      Width           =   615
+   End
+   Begin VB.TextBox txtSpieleGew 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   21
+      Top             =   2640
+      Width           =   615
+   End
+   Begin VB.TextBox txtSpieleGes 
+      Height          =   285
+      Left            =   1740
+      TabIndex        =   19
+      Top             =   2280
+      Width           =   615
+   End
+   Begin VB.TextBox txtKarteGef 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Index           =   14
+      Left            =   960
+      Locked          =   -1  'True
+      TabIndex        =   8
+      Top             =   240
+      Width           =   495
+   End
+   Begin VB.TextBox txtKartenImStapel 
+      Height          =   375
+      Left            =   3600
+      Locked          =   -1  'True
+      TabIndex        =   7
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Index           =   10
+      Left            =   1680
+      Locked          =   -1  'True
+      TabIndex        =   6
+      Top             =   240
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      ForeColor       =   &H000000FF&
+      Height          =   375
+      Index           =   7
+      Left            =   2040
+      Locked          =   -1  'True
+      TabIndex        =   5
+      Top             =   1680
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      Height          =   375
+      Index           =   11
+      Left            =   2040
+      Locked          =   -1  'True
+      TabIndex        =   4
+      Top             =   960
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      Height          =   375
+      Index           =   12
+      Left            =   1320
+      Locked          =   -1  'True
+      TabIndex        =   3
+      Top             =   960
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      Height          =   375
+      Index           =   13
+      Left            =   600
+      Locked          =   -1  'True
+      TabIndex        =   2
+      Top             =   960
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      Height          =   375
+      Index           =   9
+      Left            =   600
+      Locked          =   -1  'True
+      TabIndex        =   1
+      Top             =   1680
+      Width           =   495
+   End
+   Begin VB.TextBox txtKarteGef 
+      Height          =   375
+      Index           =   8
+      Left            =   1320
+      Locked          =   -1  'True
+      TabIndex        =   0
+      Top             =   1680
+      Width           =   495
+   End
+   Begin VB.Line Line3 
+      BorderColor     =   &H00FFFFFF&
+      X1              =   120
+      X2              =   3000
+      Y1              =   4680
+      Y2              =   4680
+   End
+   Begin VB.Line Line2 
+      X1              =   120
+      X2              =   3720
+      Y1              =   5400
+      Y2              =   5400
+   End
+   Begin VB.Label lblRdVerlPrz 
+      BackStyle       =   0  'Transparent
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2430
+      TabIndex        =   34
+      Top             =   4320
+      Width           =   615
+   End
+   Begin VB.Label lblRdpGewPrz 
+      BackStyle       =   0  'Transparent
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2430
+      TabIndex        =   33
+      Top             =   3960
+      Width           =   615
+   End
+   Begin VB.Label lblRundenVerl 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Runden verloren"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   32
+      Top             =   4320
+      Width           =   1575
+   End
+   Begin VB.Label lblRundenGew 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Runden gewonnen"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   30
+      Top             =   3960
+      Width           =   1665
+   End
+   Begin VB.Label lblRundenGes 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Runden gesamt"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   28
+      Top             =   3600
+      Width           =   1575
+   End
+   Begin VB.Label lblSpVerlPrz 
+      BackStyle       =   0  'Transparent
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2430
+      TabIndex        =   26
+      Top             =   3000
+      Width           =   615
+   End
+   Begin VB.Label lblSpieleVerl 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Spiele verloren"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   25
+      Top             =   3120
+      Width           =   1575
+   End
+   Begin VB.Label lblSpGewPrz 
+      BackStyle       =   0  'Transparent
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2430
+      TabIndex        =   23
+      Top             =   2640
+      Width           =   615
+   End
+   Begin VB.Label lblSpieleGew 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Spiele gewonnen"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   22
+      Top             =   2760
+      Width           =   1575
+   End
+   Begin VB.Label lblSpieleGes 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Spiele gesamt"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   20
+      Top             =   2400
+      Width           =   1575
+   End
+   Begin VB.Line Line1 
+      BorderColor     =   &H00FFFFFF&
+      X1              =   120
+      X2              =   3000
+      Y1              =   2160
+      Y2              =   2160
+   End
+   Begin VB.Label Label6 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Karten gefallen"
+      ForeColor       =   &H000000FF&
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   18
+      Top             =   480
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.Label lblSieben 
+      BackStyle       =   0  'Transparent
+      Caption         =   "7"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2040
+      TabIndex        =   17
+      Top             =   1440
+      Width           =   495
+   End
+   Begin VB.Label lblZehn 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Zehnen"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   16
+      Top             =   0
+      Width           =   615
+   End
+   Begin VB.Label lblAs 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Asse"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   960
+      TabIndex        =   15
+      Top             =   0
+      Width           =   495
+   End
+   Begin VB.Label Label1 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Karten im Haufen"
+      ForeColor       =   &H000000FF&
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   14
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.Label lblKoenig 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Könige"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   600
+      TabIndex        =   13
+      Top             =   720
+      Width           =   615
+   End
+   Begin VB.Label lblDame 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Damen"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   1320
+      TabIndex        =   12
+      Top             =   720
+      Width           =   615
+   End
+   Begin VB.Label lblBube 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Buben"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   2040
+      TabIndex        =   11
+      Top             =   720
+      Width           =   615
+   End
+   Begin VB.Label lblAcht 
+      BackStyle       =   0  'Transparent
+      Caption         =   "8"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   1320
+      TabIndex        =   10
+      Top             =   1440
+      Width           =   495
+   End
+   Begin VB.Label lblNeun 
+      BackStyle       =   0  'Transparent
+      Caption         =   "9"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   600
+      TabIndex        =   9
+      Top             =   1440
+      Width           =   495
+   End
+End
+Attribute VB_Name = "frmStatistik"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Private myText() As String
+
+
+Private Sub Form_Activate()
+Me.Refresh
+Me.StatistikAktualisieren
+
+End Sub
+
+Private Sub Form_Load()
+    Dock2Main
+    SetBackGround Me
+    frmStatistik_Loaded = True
+    Me.Timer1.Enabled = True
+    
+    LoadObjectText Me.Name, myText()
+    Me.lblKoenig = myText(0)
+    Me.lblDame = myText(1)
+    Me.lblBube = myText(2)
+    Me.lblAs = myText(3)
+    Me.lblZehn = myText(4)
+    Me.lblRundenGes = myText(5)
+    Me.lblRundenGew = myText(6)
+    Me.lblRundenVerl = myText(7)
+    Me.lblSpieleGes = myText(8)
+    Me.lblSpieleGew = myText(6)
+    Me.lblSpieleVerl = myText(7)
+    
+End Sub
+
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Dim lResult As Long
+  If Button = 1 Then
+    Call ReleaseCapture
+    lResult = SendMessage(Me.hwnd, WM_NCLBUTTONDOWN, _
+      HTCAPTION, 0&)
+  End If
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    Cancel = True
+    AnimWindow Me, AW_HIDE + AW_BLEND
+    If AktuellerSpieler.SpielerLevel < 3 Then
+        frmMain.menStatistik.Enabled = True
+    ElseIf AktuellerSpieler.SpielerLevel >= 3 And Not LaufendesSpiel Then
+        frmMain.menStatistik.Enabled = True
+    Else
+        'nix
+    End If
+    frmStatistik_Loaded = False
+End Sub
+
+Public Sub Dock2Main()
+    Me.Top = frmMain.Top + frmMain.Height - Me.Height
+    Me.Left = frmMain.Left + frmMain.Width
+End Sub
+
+
+
+Private Sub Timer1_Timer()
+
+Static x As Long
+Static y As Long
+If frmMain.Top <> y Or frmMain.Left <> x Then
+    y = frmMain.Top
+    x = frmMain.Left
+    Dock2Main
+End If
+
+End Sub
+
+Public Sub StatistikAktualisieren()
+Dim PunkteInf As PunkteInfo
+
+On Error GoTo ErrHand
+
+    PunkteInf = ReadFromDB(Spiel)
+    Me.txtSpieleGes = PunkteInf.GesamtSpiele
+    Me.txtSpieleGew = PunkteInf.GewonneneSpiele
+    Me.txtSpieleVerl = PunkteInf.GesamtSpiele - PunkteInf.GewonneneSpiele
+    If PunkteInf.GesamtSpiele > 0 Then
+        Me.lblSpGewPrz.Caption = Format(PunkteInf.GewonneneSpiele / PunkteInf.GesamtSpiele, "0.00%")
+        Me.lblSpVerlPrz = Format(1 - PunkteInf.GewonneneSpiele / PunkteInf.GesamtSpiele, "0.00%")
+    End If
+    
+    PunkteInf = ReadFromDB(Runde)
+    Me.txtRundenGes = PunkteInf.GesamtSpiele
+    Me.txtRundenGew = PunkteInf.GewonneneSpiele
+    Me.txtRundenVerl = PunkteInf.GesamtSpiele - PunkteInf.GewonneneSpiele
+    If PunkteInf.GesamtSpiele > 0 Then
+        Me.lblRdpGewPrz.Caption = Format(PunkteInf.GewonneneSpiele / PunkteInf.GesamtSpiele, "0.00%")
+        Me.lblRdVerlPrz = Format(1 - PunkteInf.GewonneneSpiele / PunkteInf.GesamtSpiele, "0.00%")
+    End If
+
+Exit Sub
+ErrHand:
+If ErrorBox("StatistikAktualisieren", Err) Then Resume Next
+End Sub
+
+Public Sub SetPlayerLevel()
+Dim newlevel As Integer
+On Error GoTo ErrHand
+
+If Me.txtRundenGes >= 8 And val(Me.lblRdpGewPrz) >= 0.5 Then
+    newlevel = 5
+ElseIf Me.txtRundenGes >= 6 And val(Me.lblRdpGewPrz) >= 0.5 Then
+    newlevel = 4
+ElseIf Me.txtRundenGes >= 4 And val(Me.lblRdpGewPrz) >= 0.5 Then
+    newlevel = 3
+ElseIf Me.txtRundenGes >= 2 And val(Me.lblRdpGewPrz) >= 0.5 Then
+    newlevel = 2
+ElseIf val(Me.txtRundenGew) > 0 And AktuellerSpieler.SpielerLevel = 0 Then
+    newlevel = 1
+End If
+
+If newlevel > AktuellerSpieler.SpielerLevel Then
+    AktuellerSpieler.SpielerLevel = newlevel
+    PlaySound KissSound
+    WriteNewlevel newlevel
+    MsgBox myText(9) & gstrSpace & strPlayerlevel(newlevel), vbInformation, myText(10)
+    If frmMain_Loaded Then frmMain.SetCaption
+End If
+
+Exit Sub
+ErrHand:
+If ErrorBox("SetPlayerLevel", Err) Then Resume Next
+End Sub
+
